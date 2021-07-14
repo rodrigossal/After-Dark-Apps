@@ -20,7 +20,7 @@ export default function Home() {
 
         <div className={styles.grid}>
           <a href="" className={styles.card}>
-            <h3>The Qr Code reader & Scanner &rarr;</h3>
+            <h3>The QR Code reader & Scanner &rarr;</h3>
             <p>The easiest and the most complete FREE and precise QR code reader in the store.</p>
           </a>
 
@@ -32,13 +32,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Terms of Use - Privacy Policy
-        </a>
+        <a href="terms-of-use">Terms of Use</a> - <a href="privacy-policy">Privacy Policy</a>
       </footer>
     </div>
   )
