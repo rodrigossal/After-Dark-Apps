@@ -1,0 +1,2 @@
+google.com, pub-1847306024046858, DIRECT, f08c47fec0942fa0
+facebook.com, Business ID, RESELLER, c3e20eee3f780d68
