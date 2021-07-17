@@ -19,7 +19,7 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="" className={styles.card}>
+          <a href="https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783" className={styles.card}>
             <h3>The QR Code reader & Scanner &rarr;</h3>
             <p>The easiest and the most complete FREE and precise QR code reader in the store.</p>
           </a>
