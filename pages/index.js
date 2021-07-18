@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          AFTER DARK <a href="https://apps.apple.com/us/developer/rodrigo-salles-stefani/id1243868083">APPS</a>
+          AFTER DARK <a href="https://apps.apple.com/us/developer/rodrigo-salles-stefani/id1243868083" target="_blank">APPS</a>
         </h1>
 
         <p className={styles.description}>
@@ -19,16 +19,21 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783" className={styles.card}>
+          <a href="https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783" target="_blank" className={styles.card}>
             <h3>The QR Code reader & Scanner &rarr;</h3>
             <p>The easiest and the most complete FREE and precise QR code reader in the store.</p>
           </a>
 
-          <a href="https://apps.apple.com/us/app/boreal-build-color-schemes/id1565083632" className={styles.card}>
+          <a href="https://apps.apple.com/us/app/boreal-build-color-schemes/id1565083632" target="_blank" className={styles.card}>
             <h3>Boreal - Build color schemes! &rarr;</h3>
             <p>Build awesome color schemes for your designs with an ultra-fast palette generator! Decide which colors and combinations to use with our cheatsheets!</p>
           </a>
         </div>
+
+        <p className={styles.description}>
+          Contact us at &rarr; <a href="mailto:rodrigo.sstefani@gmail.com" target="_blank" className={styles.target}>rodrigo.sstefani@gmail.com</a>
+        </p>
+
       </main>
 
       <footer className={styles.footer}>
