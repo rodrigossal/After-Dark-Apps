@@ -22,9 +22,9 @@ export default function Home() {
                 to translate the app into other languages, or make derivative
                 versions. The app itself, and all the trade marks, copyright,
                 database rights and other intellectual property rights related
-                to it, still belong to Rodrigo Salles.
+                to it, still belong to After Dark Apps.
             </p> <p>
-                Rodrigo Salles is committed to ensuring that the app is
+                After Dark Apps is committed to ensuring that the app is
                 as useful and efficient as possible. For that reason, we
                 reserve the right to make changes to the app or to charge for
                 its services, at any time and for any reason. We will never
@@ -64,10 +64,10 @@ export default function Home() {
             </div>
             <p>
                 You should be aware that there are certain things that
-                Rodrigo Salles will not take responsibility for. Certain
+                After Dark Apps will not take responsibility for. Certain
                 functions of the app will require the app to have an active
                 internet connection. The connection can be Wi-Fi, or provided
-                by your mobile network provider, but Rodrigo Salles
+                by your mobile network provider, but After Dark Apps
                 cannot take responsibility for the app not working at full
                 functionality if you don’t have access to Wi-Fi, and you don’t
                 have any of your data allowance left.
@@ -85,18 +85,18 @@ export default function Home() {
                 using the app, please be aware that we assume that you have
                 received permission from the bill payer for using the app.
             </p> <p>
-                Along the same lines, Rodrigo Salles cannot always take
+                Along the same lines, After Dark Apps cannot always take
                 responsibility for the way you use the app i.e. You need to
                 make sure that your device stays charged – if it runs out of
                 battery and you can’t turn it on to avail the Service,
-                Rodrigo Salles cannot accept responsibility.
+                After Dark Apps cannot accept responsibility.
             </p> <p>
-                With respect to Rodrigo Salles’s responsibility for your
+                With respect to After Dark Apps’s responsibility for your
                 use of the app, when you’re using the app, it’s important to
                 bear in mind that although we endeavour to ensure that it is
                 updated and correct at all times, we do rely on third parties
                 to provide information to us so that we can make it available
-                to you. Rodrigo Salles accepts no liability for any
+                to you. After Dark Apps accepts no liability for any
                 loss, direct or indirect, you experience as a result of
                 relying wholly on this functionality of the app.
             </p> <p>
@@ -105,7 +105,7 @@ export default function Home() {
                 system(and for any additional systems we
                 decide to extend the availability of the app to) may change,
                 and you’ll need to download the updates if you want to keep
-                using the app. Rodrigo Salles does not promise that it
+                using the app. After Dark Apps does not promise that it
                 will always update the app so that it is relevant to you
                 and/or works with the iOS version that you have
                 installed on your device. However, you promise to always

@@ -31,7 +31,7 @@ export default function Home() {
         </div>
 
         <p className={styles.description}>
-          Contact us at &rarr; <a href="mailto:rodrigo.sstefani@gmail.com" target="_blank" className={styles.target}>rodrigo.sstefani@gmail.com</a>
+          Contact us at &rarr; <a href="mailto:blackshadowcomp@gmail.com" target="_blank" className={styles.target}>blackshadowcomp@gmail.com</a>
         </p>
 
       </main>

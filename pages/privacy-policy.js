@@ -13,9 +13,9 @@ export default function Home() {
       </h1>
 
       <p>
-        Rodrigo Salles Stefani, owner of After dark Apps built the QR Code app as
+        After dark Apps built the QR Code app as
         a Freemium app. This SERVICE is provided by
-        Rodrigo Salles at no cost and is intended for use as
+        After dark Apps at no cost and is intended for use as
         is.
       </p>
       <p>
