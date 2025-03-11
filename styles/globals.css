@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.dark-mode {
+  background-color: #1a202c;
+  color: #f7fafc;
+}
+
+.dark-mode a {
+  color: #63b3ed;
+}
