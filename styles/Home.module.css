@@ -14,15 +14,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .footer {
   width: 100%;
-  height: 100px;
+  height: auto;
+  min-height: 100px;
   border-top: 1px solid #eaeaea;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem 0;
 }
 
 .footer img {
@@ -30,9 +35,23 @@
 }
 
 .footer a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.footer p {
+  margin-bottom: 1rem;
+}
+
+.footerLinks {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .title a {
@@ -60,6 +79,7 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
 .code {
@@ -73,11 +93,11 @@
 
 .grid {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+  max-width: 1000px;
+  margin: 1.5rem 0 3rem 0;
 }
 
 .card {
@@ -90,6 +110,8 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover,
@@ -105,19 +127,113 @@
 }
 
 .card p {
-  margin: 0;
-  font-size: 1.25rem;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
   line-height: 1.5;
+  flex-grow: 1;
+}
+
+.storeLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.storeBadge {
+  height: 40px;
+  width: auto;
 }
 
 .logo {
   height: 1em;
 }
 
+/* Section Styles */
+.section {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #eaeaea;
+}
+
+.darkSection {
+  background-color: #2d3748;
+  border-color: #4a5568;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.linkHighlight {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.linkHighlight:hover,
+.linkHighlight:focus {
+  text-decoration: underline;
+}
+
+/* Legal Section */
+.legalSection {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #eaeaea;
+}
+
+.legalLinks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.legalLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #0070f3;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.legalLink:hover {
+  background: #0051a2;
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  
+  .legalLinks {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 3rem;
   }
 }
 
@@ -133,3 +249,90 @@
 }
 
 /* Remova ou comente as classes .dark anteriores se não forem mais necessárias */
+
+/* Theme toggle button styles */
+.themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.7;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.themeToggle:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.lightToggle {
+  background-color: rgba(240, 240, 240, 0.7);
+  color: #333;
+}
+
+.darkToggle {
+  background-color: rgba(50, 50, 50, 0.7);
+  color: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+  .themeToggle {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Logo and Header Styles */
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.logoContainer {
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logoContainer:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+}
+
+.footerLogo {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footerLogo:hover {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    width: 150px;
+  }
+}

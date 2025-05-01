@@ -1,5 +1,6 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+// pages/terms-of-use.js
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
 
 export default function TermsOfUse({ darkMode }) {
   return (
@@ -10,71 +11,67 @@ export default function TermsOfUse({ darkMode }) {
 
       <h1 className={styles.title}>Terms of Use</h1>
 
+      {/* 1. Ownership & Restrictions */}
+      <h2>1. Ownership &amp; Restrictions</h2>
       <p>
-        By downloading or using any of our applications, you agree to these Terms of Use. Please read them carefully before using our services.  
-        You are not allowed to copy, modify, reverse-engineer, or distribute any of our applications or trademarks without explicit permission.  
-        All intellectual property rights related to our apps remain the property of After Dark Apps.
+        All content, code, trademarks and intellectual property related to After Dark Apps products are owned by After Dark Apps. You may not copy, reverse-engineer, decompile, distribute or modify our applications without prior written consent.
       </p>
 
+      {/* 2. App Availability & Changes */}
+      <h2>2. App Availability &amp; Changes</h2>
       <p>
-        After Dark Apps reserves the right to modify, update, or discontinue any of its apps or services at any time.  
-        Any charges for premium features will always be clearly communicated before purchase.
+        We may modify, update or discontinue any app or service at any time without notice. If we offer paid features, pricing will always be clearly presented before purchase.
       </p>
 
-      <p><strong>Data & Privacy</strong></p>
+      {/* 3. User Responsibility */}
+      <h2>3. User Responsibility</h2>
       <p>
-        Our applications may store and process certain user data as necessary to provide services.  
-        You are responsible for maintaining the security of your device. We strongly discourage jailbreaking or rooting,  
-        as this may compromise security and lead to unexpected behavior in our applications.
+        You are responsible for your device’s security and data. Use of jailbroken or rooted devices is discouraged, as it may compromise functionality and security.
       </p>
 
-      <div>
-        <p>Some of our applications use third-party services, each with their own Terms of Use:</p>
-        <ul>
-          <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
-          <li><a href="https://developers.google.com/admob/terms" target="_blank" rel="noopener noreferrer">AdMob</a></li>
-          <li><a href="https://firebase.google.com/terms/analytics" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
-          <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
-          <li><a href="https://www.facebook.com/legal/terms/plain_text_terms" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-        </ul>
-      </div>
-
-      <p><strong>Internet & Data Usage</strong></p>
+      {/* 4. Third-Party Services */}
+      <h2>4. Third-Party Services</h2>
       <p>
-        Some features of our apps require an active internet connection.  
-        After Dark Apps is not responsible for interruptions due to poor connectivity.  
-        If you use our apps over mobile data, be aware that your carrier may apply additional charges.  
-        Users are responsible for any such costs, including roaming fees when using the app outside their home country.
+        Our apps may integrate third-party tools subject to their own terms, including:
+      </p>
+      <ul>
+        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+        <li><a href="https://firebase.google.com/terms/" target="_blank" rel="noopener noreferrer">Firebase (Analytics, Crashlytics)</a></li>
+        <li><a href="https://developers.google.com/admob/terms" target="_blank" rel="noopener noreferrer">AdMob</a></li>
+        <li><a href="https://www.facebook.com/legal/terms" target="_blank" rel="noopener noreferrer">Facebook SDK</a></li>
+      </ul>
+
+      {/* 5. Connectivity */}
+      <h2>5. Connectivity</h2>
+      <p>
+        Some features require an active internet connection. We are not liable for interruptions due to poor network conditions. Carrier or roaming charges may apply and are the user’s responsibility.
       </p>
 
-      <p><strong>Battery & Device Responsibility</strong></p>
+      {/* 6. Device & Battery Use */}
+      <h2>6. Device &amp; Battery Use</h2>
       <p>
-        After Dark Apps is not responsible for device issues that may affect app usage, including battery depletion or device failures.
+        After Dark Apps is not responsible for hardware issues, battery usage or device malfunctions occurring during app use.
       </p>
 
-      <p><strong>Software Updates</strong></p>
+      {/* 7. Software Updates */}
+      <h2>7. Software Updates</h2>
       <p>
-        We may release updates to improve performance or compatibility.  
-        You agree to install these updates to continue using our applications.  
-        We reserve the right to discontinue any app at any time without prior notice.
+        Updates may be required to maintain app functionality. We reserve the right to discontinue any app or feature at our discretion.
       </p>
 
-      <p><strong>Changes to Terms</strong></p>
+      {/* 8. Terms Updates */}
+      <h2>8. Terms Updates</h2>
       <p>
-        We may update these Terms of Use periodically.  
-        Any modifications will be posted on this page, and continued use of our apps implies acceptance of the updated terms.
+        We may revise these Terms periodically. Continued use after changes implies acceptance of the updated Terms.
       </p>
 
-      <p>Effective date: 2024-03-11</p>
+      <p><strong>Effective date:</strong> 2025-05-01</p>
 
-      <p><strong>Contact Us</strong></p>
+      {/* Contact */}
+      <h2>Contact Us</h2>
       <p>
-        If you have any questions or concerns, please contact us at <a href="mailto:hi@afterdarkapps.com">hi@afterdarkapps.com</a>.
-      </p>
-
-      <p>
-        These Terms of Use were created for After Dark Apps and may be subject to further modifications.
+        For questions or support: <a href="mailto:hi@afterdarkapps.com">hi@afterdarkapps.com</a>
       </p>
     </div>
-  );
+  )
 }

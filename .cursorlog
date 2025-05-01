@@ -1,0 +1,97 @@
+# Tasks
+[x] Improve the After Dark Apps website content to meet App Store and Play Store requirements
+  [x] Add "About Us" section with company information
+  [x] Add enhanced "Support" section with contact details
+  [x] Make Legal documents more visible with dedicated section
+  [x] Add more detailed app descriptions
+  [x] Include current year in copyright notice
+  [x] Add app store badges to each app card
+[x] Fix Next.js configuration issues
+  [x] Create missing _document.js file
+  [x] Fix React dependencies version mismatch
+[x] Fix React hydration errors
+  [x] Replace invalid div inside a nesting with span
+  [x] Fix nested <a> tags by changing card container to div
+[x] Improve UI elements
+  [x] Make the theme toggle button more subtle and aesthetically pleasing
+  [x] Add the Super LED Banner app to the website
+  [x] Remove Google Play badges temporarily until apps are published on Google Play
+  [x] Add placeholder comments for easy Google Play integration in the future
+  [x] Update dark mode to follow browser preference and default to dark mode
+  [x] Add company logo to header and footer
+[x] Test and verify all links work properly
+  [x] Check all App Store links to apps
+  [x] Verify Privacy Policy and Terms of Use internal links
+  [x] Validate the support email link functionality
+  [x] Test the "Support" anchor link in the footer
+  [x] Ensure all external links have proper rel="noopener noreferrer" attributes
+[x] Ensure responsive design works on mobile devices
+  [x] Test responsive layout at different viewport sizes
+  [x] Verify that text is legible on small screens
+  [x] Ensure proper spacing and padding in mobile view
+  [x] Check that theme toggle is properly positioned on mobile
+  [x] Test navigation and footer on mobile
+
+# Logs
+2025-06-23: Updated index.js to add the following sections:
+- Added "About Us" section describing the company
+- Enhanced app descriptions with more details about features
+- Added a dedicated "Support" section with contact information
+- Created a more visible "Legal" section with prominent links to Terms and Privacy
+- Added dynamic current year copyright in the footer
+- Included App Store and Google Play badges for each app
+- Added meta description tag for better SEO
+
+2025-06-23: Updated Home.module.css to style the new sections:
+- Added section styling with proper dark mode support
+- Created styles for store badges
+- Improved responsive design for mobile
+- Enhanced footer layout
+- Added styling for legal section with prominent buttons
+
+2025-06-23: Added App Store and Google Play badge SVGs to the public folder 
+
+2025-06-23: Created _document.js file to fix Next.js configuration error:
+- Added a basic Next.js document structure with Html, Head, Main, and NextScript components
+- Fixed the "Module not found: Error: Can't resolve 'private-next-pages/_document'" error
+
+2025-06-23: Fixed React compatibility issues:
+- Updated package.json to use React 18.2.0 instead of React 19.1.0
+- Fixed "Module not found: Can't resolve 'react/jsx-dev-runtime'" error
+- Resolved dependency conflicts between React and Next.js
+
+2025-06-23: Fixed React hydration error:
+- Replaced invalid <div> inside <a> tag in app cards with <span>
+- Ensured CSS for .storeLinks works correctly with span
+
+2025-06-23: Fixed nested links hydration error:
+- Changed the main container for each app card from <a> to <div> to avoid nesting links.
+- This resolves the "Expected server HTML to contain a matching <a> in <span>" error.
+
+2025-06-24: Improved UI elements and app listings:
+- Redesigned the theme toggle button to be more subtle with glass-like styling
+- Added custom CSS for the toggle with hover effects and proper dark/light mode variants
+- Temporarily removed Google Play badges since the apps aren't available on Google Play yet
+- Added placeholder comments for easy Google Play integration in the future
+- Added the Super LED Banner app to the website with description and App Store link
+
+2025-06-24: Enhanced dark mode implementation:
+- Updated _app.js to respect the browser's dark mode preference
+- Added a default setting to use dark mode when preference can't be determined
+- Implemented a media query listener to detect system preference changes
+- Added safeguards for server-side rendering with typeof window checks
+- Improved backwards compatibility with older browsers
+
+2025-06-24: Added company logo to the website:
+- Added logo to the header with hover animation effect
+- Added smaller logo to the footer
+- Updated the favicon to use the logo
+- Improved header layout with logo and title
+- Added responsive styling for logo on mobile devices 
+
+2025-06-25: Updated website to use the existing PNG logo:
+- Removed previously created SVG files
+- Updated index.js to use the existing "AD Apps Logo.png" file
+- Changed App Store badge links to use the official Apple badge from Apple's CDN
+- Updated favicon to use the PNG logo
+- Maintained responsive design with the PNG logo in header and footer 
