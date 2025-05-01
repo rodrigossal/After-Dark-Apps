@@ -31,6 +31,16 @@
   [x] Ensure proper spacing and padding in mobile view
   [x] Check that theme toggle is properly positioned on mobile
   [x] Test navigation and footer on mobile
+[x] Check for security vulnerabilities in project dependencies and fix critical issues
+  [x] Ran npm audit and identified a critical vulnerability in Next.js versions 15.0.0 to 15.2.2
+  [x] Applied npm audit fix to update Next.js to a secure version with no vulnerabilities reported
+[x] Implement automatic app icon display system
+  [x] Create utility functions to extract app IDs from App Store URLs
+  [x] Build function to fetch app info from iTunes API
+  [x] Develop React component to display app icons with loading and error states
+  [x] Create AppCard component that integrates app icons with existing card layout
+  [x] Update main page to use new AppCard components
+  [x] Add responsive styling for app icons and headers
 
 # Logs
 2025-06-23: Updated index.js to add the following sections:
@@ -95,3 +105,16 @@
 - Changed App Store badge links to use the official Apple badge from Apple's CDN
 - Updated favicon to use the PNG logo
 - Maintained responsive design with the PNG logo in header and footer 
+
+2025-06-26: Fixed critical security vulnerability in Next.js:
+- Ran npm audit and identified a critical authorization bypass vulnerability in Next.js versions 15.0.0 to 15.2.2
+- Applied npm audit fix to update dependencies and resolve the security issue
+- Verified that all dependencies are now secure with no reported vulnerabilities
+
+2025-06-26: Implemented automatic app icon fetching system:
+- Created a utility module (utils/appIcons.js) to extract App Store IDs and fetch app info
+- Developed a reusable AppIcon component with loading, error states, and responsive sizing
+- Built a new AppCard component that displays app icons alongside app details
+- Updated the main page to use the new card components with auto-fetched icons
+- Added styling for app icons with border radius, hover effects, and dark mode support
+- Ensured the system works with any App Store URL format by using regex pattern matching 

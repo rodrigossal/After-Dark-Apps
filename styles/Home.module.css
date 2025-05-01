@@ -147,7 +147,10 @@
 }
 
 .logo {
-  height: 1em;
+  width: 200px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* Section Styles */
@@ -319,6 +322,7 @@
   width: 200px;
   height: auto;
   max-width: 100%;
+  object-fit: contain;
 }
 
 .footerLogo {
@@ -335,4 +339,15 @@
   .logo {
     width: 150px;
   }
+}
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.appHeader h3 {
+  margin: 0;
+  font-size: 1.5rem;
 }

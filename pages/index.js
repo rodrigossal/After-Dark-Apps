@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import AppCard from '../components/AppCard';
 
 export default function Home({ darkMode, setDarkMode }) {
   // Get current year for copyright
@@ -55,38 +56,26 @@ export default function Home({ darkMode, setDarkMode }) {
         {/* Apps Section */}
         <h2 className={styles.sectionTitle}>Our Apps</h2>
         <div className={styles.grid}>
-          <div className={`${styles.card} ${darkMode ? styles.darkCard : ''}`}>
-            <h3>The QR Code reader & Scanner &rarr;</h3>
-            <p>The easiest and the most complete FREE and precise QR code reader in the store. Quickly scan any QR code and get results instantly, with history tracking and sharing capabilities.</p>
-            <span className={styles.storeLinks}>
-              <a href="https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783" target="_blank" rel="noopener noreferrer">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on App Store" className={styles.storeBadge} />
-              </a>
-              {/* Google Play link can be added here when available */}
-            </span>
-          </div>
+          <AppCard
+            title="The QR Code reader & Scanner"
+            description="The easiest and the most complete FREE and precise QR code reader in the store. Quickly scan any QR code and get results instantly, with history tracking and sharing capabilities."
+            appStoreUrl="https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783"
+            darkMode={darkMode}
+          />
 
-          <div className={`${styles.card} ${darkMode ? styles.darkCard : ''}`}>
-            <h3>Boreal - Build color schemes! &rarr;</h3>
-            <p>Build awesome color schemes for your designs with an ultra-fast palette generator! Decide which colors and combinations to use with our cheatsheets. Perfect for designers, developers, and anyone working on visual projects.</p>
-            <span className={styles.storeLinks}>
-              <a href="https://apps.apple.com/us/app/boreal-build-color-schemes/id1565083632" target="_blank" rel="noopener noreferrer">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on App Store" className={styles.storeBadge} />
-              </a>
-              {/* Google Play link can be added here when available */}
-            </span>
-          </div>
+          <AppCard
+            title="Boreal - Build color schemes!"
+            description="Build awesome color schemes for your designs with an ultra-fast palette generator! Decide which colors and combinations to use with our cheatsheets. Perfect for designers, developers, and anyone working on visual projects."
+            appStoreUrl="https://apps.apple.com/us/app/boreal-build-color-schemes/id1565083632"
+            darkMode={darkMode}
+          />
           
-          <div className={`${styles.card} ${darkMode ? styles.darkCard : ''}`}>
-            <h3>Super LED Banner - HD & LED &rarr;</h3>
-            <p>Show awesome LED & HD messages to your friends, dates, coworkers, family, or anyone you want! Create eye-catching scrolling text displays with customizable colors, fonts, and effects. Perfect for events, communication, or just for fun.</p>
-            <span className={styles.storeLinks}>
-              <a href="https://apps.apple.com/us/app/super-led-banner-hd-led/id6443628073" target="_blank" rel="noopener noreferrer">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on App Store" className={styles.storeBadge} />
-              </a>
-              {/* Google Play link can be added here when available */}
-            </span>
-          </div>
+          <AppCard
+            title="Super LED Banner - HD & LED"
+            description="Show awesome LED & HD messages to your friends, dates, coworkers, family, or anyone you want! Create eye-catching scrolling text displays with customizable colors, fonts, and effects. Perfect for events, communication, or just for fun."
+            appStoreUrl="https://apps.apple.com/us/app/super-led-banner-hd-led/id6443628073"
+            darkMode={darkMode}
+          />
         </div>
 
         {/* Support Section */}
