@@ -1,114 +1,156 @@
-import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import AppCard from '../components/AppCard';
 
-export default function Home({ darkMode, setDarkMode }) {
-  // Get current year for copyright
+const featuredApps = [
+  {
+    title: 'The QR Code reader & Scanner',
+    description:
+      'Lightning-fast scanning with history, sharing and reliability trusted by millions of users worldwide.',
+    appStoreUrl: 'https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783',
+    highlightLabel: 'Top download',
+  },
+  {
+    title: 'Ruba Mazzo',
+    description:
+      'Master the classic Italian card game with guided tutorials, practice matches and challenges for every skill level.',
+    googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.afterdarkgames.rubamazzo',
+    highlightLabel: 'Fan favorite on Google Play',
+  },
+];
+
+const moreApps = [
+  {
+    title: 'Super LED Banner - HD & LED',
+    description:
+      'Create vibrant LED banners with custom fonts, colors and effects for events, meetups or quick shout-outs.',
+    appStoreUrl: 'https://apps.apple.com/us/app/super-led-banner-hd-led/id6443628073',
+  },
+  {
+    title: 'Magic Water Color Sort Puzzle',
+    description:
+      'Unwind by sorting colorful liquids into the right tubes across hundreds of relaxing, visually rich levels.',
+    googlePlayUrl:
+      'https://play.google.com/store/apps/details?id=com.afterdark.games.magic.water.color.sort.puzzle',
+  },
+  {
+    title: 'Boreal - Build color schemes!',
+    description:
+      'Build professional color palettes in seconds with guided harmonies and cheatsheets for your visual projects.',
+    appStoreUrl: 'https://apps.apple.com/us/app/boreal-build-color-schemes/id1565083632',
+  },
+];
+
+export default function Home() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <div className={`${styles.container} ${darkMode ? styles.darkMode : ''}`}>
+    <div className={styles.page} id="top">
       <Head>
-        <title>After Dark Apps</title>
+        <title>After Dark Apps | Crafted mobile experiences</title>
+        <meta
+          name="description"
+          content="After Dark Apps creates polished mobile products for Android and iOS — designed to delight night and day."
+        />
         <link rel="icon" href="/AD Apps Logo.png" />
-        <meta name="description" content="Mobile app development company building practical and delightful experiences for Android and iOS." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       </Head>
 
-      {/* Theme toggle button */}
-      <button 
-        onClick={() => setDarkMode(!darkMode)} 
-        className={`${styles.themeToggle} ${darkMode ? styles.darkToggle : styles.lightToggle}`}
-        aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-      >
-        {darkMode ? '☀️' : '🌙'}
-      </button>
-
-      <main className={`${styles.main} ${darkMode ? styles.darkMode : ''}`}>
-        {/* Logo and Title */}
-        <div className={styles.headerContainer}>
-          <div className={styles.logoContainer}>
-            <img 
-              src="/AD Apps Logo.png" 
-              alt="After Dark Apps Logo" 
-              className={styles.logo}
-            />
+      <header className={styles.hero}>
+        <nav className={styles.navbar}>
+          <a href="#top" className={styles.brand} aria-label="After Dark Apps Home">
+            <Image src="/AD Apps Logo.png" alt="After Dark Apps logo" width={44} height={44} priority />
+            <span>After Dark Apps</span>
+          </a>
+          <div className={styles.navLinks}>
+            <a href="#featured">Apps</a>
+            <a href="#more-apps">More</a>
+            <a href="#support">Support</a>
+            <a href="/terms-of-use">Legal</a>
           </div>
-          <h1 className={styles.title}>
-            AFTER DARK <a href="https://apps.apple.com/us/developer/rodrigo-salles-stefani/id1243868083" target="_blank" rel="noopener noreferrer">APPS</a>
+        </nav>
+
+        <div className={styles.heroInner}>
+          <span className={styles.heroBadge}>Independent studio · Est. 2022</span>
+          <h1 className={styles.heroTitle}>
+            Mobile experiences
+            <br /> built for the night.
           </h1>
-        </div>
-
-        <p className={styles.description}>
-          The app you were looking for
-        </p>
-
-        {/* About Section */}
-        <section className={`${styles.section} ${darkMode ? styles.darkSection : ''}`}>
-          <h2 className={styles.sectionTitle}>About Us</h2>
-          <p className={styles.sectionText}>
-            After Dark Apps is a mobile app development company based in Brazil, building practical and delightful experiences 
-            for Android and iOS since 2022. We focus on creating high-quality, user-friendly applications that solve real problems.
+          <p className={styles.heroSubtitle}>
+            Apps engineered to solve real problems with slick interfaces, intuitive flows and just the right amount of polish.
           </p>
+          <div className={styles.heroActions}>
+            <a className={`${styles.button} ${styles.buttonPrimary}`} href="#featured">
+              Browse the apps
+            </a>
+            <a
+              className={`${styles.button} ${styles.buttonGhost}`}
+              href="https://play.google.com/store/apps/developer?id=After+Dark+Apps"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Play Developer
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main className={styles.main}>
+        <section id="featured" className={styles.section}>
+          <div className={styles.sectionHeading}>
+            <h2>Featured apps</h2>
+            <p>Community favorites that combine performance, stability and premium mobile experiences.</p>
+          </div>
+          <div className={styles.featuredGrid}>
+            {featuredApps.map((app) => (
+              <AppCard key={app.title} {...app} variant="featured" />
+            ))}
+          </div>
         </section>
 
-        {/* Apps Section */}
-        <h2 className={styles.sectionTitle}>Our Apps</h2>
-        <div className={styles.grid}>
-          <AppCard
-            title="The QR Code reader & Scanner"
-            description="The easiest and the most complete FREE and precise QR code reader in the store. Quickly scan any QR code and get results instantly, with history tracking and sharing capabilities."
-            appStoreUrl="https://apps.apple.com/us/app/the-qr-code-reader-generator/id1574736783"
-            darkMode={darkMode}
-          />
-
-          <AppCard
-            title="Boreal - Build color schemes!"
-            description="Build awesome color schemes for your designs with an ultra-fast palette generator! Decide which colors and combinations to use with our cheatsheets. Perfect for designers, developers, and anyone working on visual projects."
-            appStoreUrl="https://apps.apple.com/us/app/boreal-build-color-schemes/id1565083632"
-            darkMode={darkMode}
-          />
-          
-          <AppCard
-            title="Super LED Banner - HD & LED"
-            description="Show awesome LED & HD messages to your friends, dates, coworkers, family, or anyone you want! Create eye-catching scrolling text displays with customizable colors, fonts, and effects. Perfect for events, communication, or just for fun."
-            appStoreUrl="https://apps.apple.com/us/app/super-led-banner-hd-led/id6443628073"
-            darkMode={darkMode}
-          />
-        </div>
-
-        {/* Support Section */}
-        <section className={`${styles.section} ${darkMode ? styles.darkSection : ''}`} id="support">
-          <h2 className={styles.sectionTitle}>Support</h2>
-          <p className={styles.sectionText}>
-            For app support or business inquiries, contact us at <a href="mailto:hi@afterdarkapps.com" className={styles.linkHighlight}>hi@afterdarkapps.com</a>. 
-            We usually respond within 48 hours.
-          </p>
+        <section id="more-apps" className={styles.section}>
+          <div className={styles.sectionHeading}>
+            <h2>More experiences</h2>
+            <p>Creative tools and handy utilities ready to plug into your daily workflow.</p>
+          </div>
+          <div className={styles.appGrid}>
+            {moreApps.map((app) => (
+              <AppCard key={app.title} {...app} variant="compact" />
+            ))}
+          </div>
         </section>
 
-        {/* Legal Section */}
-        <section className={`${styles.legalSection} ${darkMode ? styles.darkSection : ''}`}>
-          <h2 className={styles.sectionTitle}>Legal</h2>
-          <div className={styles.legalLinks}>
-            <a href="/terms-of-use" className={styles.legalLink}>Terms of Use</a>
-            <a href="/privacy-policy" className={styles.legalLink}>Privacy Policy</a>
+        <section id="support" className={`${styles.section} ${styles.sectionSurface}`}>
+          <div className={styles.sectionHeading}>
+            <h2>Need help?</h2>
+            <p>Questions or issues? Our team normally replies within 48 business hours.</p>
+          </div>
+          <div className={styles.supportCard}>
+            <div>
+              <p>
+                Email <a href="mailto:hi@afterdarkapps.com">hi@afterdarkapps.com</a> with your request. Adding screenshots
+                and device details helps us troubleshoot faster.
+              </p>
+            </div>
+            <a className={`${styles.button} ${styles.buttonPrimary}`} href="mailto:hi@afterdarkapps.com">
+              Contact support
+            </a>
           </div>
         </section>
       </main>
 
-      <footer className={`${styles.footer} ${darkMode ? styles.darkMode : ''}`}>
-        <div className={styles.footerLogo}>
-          <img 
-            src="/AD Apps Logo.png" 
-            alt="After Dark Apps Logo" 
-            width={40} 
-            height={40} 
-          />
+      <footer className={styles.footer}>
+        <div className={styles.footerBrand}>
+          <Image src="/AD Apps Logo.png" alt="After Dark Apps logo" width={36} height={36} />
+          <span>After Dark Apps</span>
         </div>
-        <p>© {currentYear} After Dark Apps LTDA. All rights reserved.</p>
+        <p className={styles.footerText}>© {currentYear} After Dark Apps LTDA. All rights reserved.</p>
         <div className={styles.footerLinks}>
-          <a href="/terms-of-use">Terms of Use</a> | <a href="/privacy-policy">Privacy Policy</a> | <a href="#support">Support</a>
+          <a href="/terms-of-use">Terms of Use</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="#support">Support</a>
         </div>
       </footer>
     </div>

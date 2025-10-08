@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react';
-import { extractAppId, fetchAppInfo } from '../utils/appIcons';
+import { 
+  extractAppId, 
+  extractGooglePlayId, 
+  fetchAppInfo, 
+  fetchGooglePlayIcon, 
+  adjustGooglePlayIconSize 
+} from '../utils/appIcons';
 import styles from '../styles/AppIcon.module.css';
 
 /**
  * Componente que exibe o ícone de um aplicativo com base na URL da App Store
  * @param {Object} props - Propriedades do componente
  * @param {string} props.appStoreUrl - URL completa do aplicativo na App Store
+ * @param {string} props.googlePlayUrl - URL completa do aplicativo no Google Play
  * @param {string} props.size - Tamanho do ícone ('small', 'medium', 'large')
  * @param {string} props.alt - Texto alternativo para o ícone
  * @param {Object} props.style - Estilos adicionais para o container do ícone
  * @returns {JSX.Element} Componente de ícone do aplicativo
  */
-export default function AppIcon({ appStoreUrl, size = 'medium', alt = 'App Icon', style = {} }) {
+export default function AppIcon({ appStoreUrl, googlePlayUrl, size = 'medium', alt = 'App Icon', style = {}, className = '' }) {
   const [iconUrl, setIconUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -23,32 +30,52 @@ export default function AppIcon({ appStoreUrl, size = 'medium', alt = 'App Icon'
         setLoading(true);
         setError(false);
         
-        // Extrair o ID do aplicativo da URL
-        const appId = extractAppId(appStoreUrl);
-        
-        if (!appId) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
-        
-        // Buscar informações completas do aplicativo
-        const appInfo = await fetchAppInfo(appId);
-        
-        if (appInfo) {
-          // Selecionar a URL do ícone com base no tamanho solicitado
-          let url;
-          if (size === 'small' && appInfo.artworkUrl60) {
-            url = appInfo.artworkUrl60;
-          } else if (size === 'medium' && appInfo.artworkUrl100) {
-            url = appInfo.artworkUrl100;
-          } else if (appInfo.artworkUrl512) {
-            url = appInfo.artworkUrl512;
-          } else {
-            url = appInfo.artworkUrl60 || appInfo.artworkUrl100 || appInfo.artworkUrl512;
+        if (appStoreUrl) {
+          // Extrair o ID do aplicativo da URL da App Store
+          const appId = extractAppId(appStoreUrl);
+          
+          if (!appId) {
+            setError(true);
+            setLoading(false);
+            return;
           }
           
-          setIconUrl(url);
+          // Buscar informações completas do aplicativo
+          const appInfo = await fetchAppInfo(appId);
+          
+          if (appInfo) {
+            // Selecionar a URL do ícone com base no tamanho solicitado
+            let url;
+            if (size === 'small' && appInfo.artworkUrl60) {
+              url = appInfo.artworkUrl60;
+            } else if (size === 'medium' && appInfo.artworkUrl100) {
+              url = appInfo.artworkUrl100;
+            } else if (appInfo.artworkUrl512) {
+              url = appInfo.artworkUrl512;
+            } else {
+              url = appInfo.artworkUrl60 || appInfo.artworkUrl100 || appInfo.artworkUrl512;
+            }
+            
+            setIconUrl(url);
+          } else {
+            setError(true);
+          }
+        } else if (googlePlayUrl) {
+          const packageId = extractGooglePlayId(googlePlayUrl);
+          
+          if (!packageId) {
+            setError(true);
+            setLoading(false);
+            return;
+          }
+          
+          const googleIconUrl = await fetchGooglePlayIcon(packageId);
+          
+          if (googleIconUrl) {
+            setIconUrl(adjustGooglePlayIconSize(googleIconUrl, size));
+          } else {
+            setError(true);
+          }
         } else {
           setError(true);
         }
@@ -60,19 +87,19 @@ export default function AppIcon({ appStoreUrl, size = 'medium', alt = 'App Icon'
       }
     }
     
-    if (appStoreUrl) {
+    if (appStoreUrl || googlePlayUrl) {
       fetchAppIcon();
     } else {
       setError(true);
       setLoading(false);
     }
-  }, [appStoreUrl, size]);
+  }, [appStoreUrl, googlePlayUrl, size]);
 
   // Determinar a classe do tamanho do ícone
   const sizeClass = styles[`size${size.charAt(0).toUpperCase() + size.slice(1)}`] || styles.sizeMedium;
   
   return (
-    <div className={`${styles.iconContainer} ${sizeClass}`} style={style}>
+    <div className={`${styles.iconContainer} ${sizeClass} ${className}`} style={style}>
       {loading ? (
         // Exibir um placeholder enquanto carrega
         <div className={styles.placeholder} />
@@ -85,8 +112,13 @@ export default function AppIcon({ appStoreUrl, size = 'medium', alt = 'App Icon'
         </div>
       ) : (
         // Exibir o ícone do aplicativo
-        <img src={iconUrl} alt={alt} className={styles.appIcon} />
+        <img
+          src={iconUrl}
+          alt={alt}
+          className={styles.appIcon}
+          referrerPolicy="no-referrer"
+        />
       )}
     </div>
   );
-} 
+}
