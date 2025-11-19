@@ -6,7 +6,6 @@ import {
   fetchGooglePlayIcon, 
   adjustGooglePlayIconSize 
 } from '../utils/appIcons';
-import styles from '../styles/AppIcon.module.css';
 
 /**
  * Componente que exibe o ícone de um aplicativo com base na URL da App Store
@@ -18,7 +17,7 @@ import styles from '../styles/AppIcon.module.css';
  * @param {Object} props.style - Estilos adicionais para o container do ícone
  * @returns {JSX.Element} Componente de ícone do aplicativo
  */
-export default function AppIcon({ appStoreUrl, googlePlayUrl, size = 'medium', alt = 'App Icon', style = {}, className = '' }) {
+export default function AppIcon({ appStoreUrl, googlePlayUrl, size = 'medium', alt = 'App Icon', fallbackLetter = null, style = {}, className = '' }) {
   const [iconUrl, setIconUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -96,26 +95,35 @@ export default function AppIcon({ appStoreUrl, googlePlayUrl, size = 'medium', a
   }, [appStoreUrl, googlePlayUrl, size]);
 
   // Determinar a classe do tamanho do ícone
-  const sizeClass = styles[`size${size.charAt(0).toUpperCase() + size.slice(1)}`] || styles.sizeMedium;
+  const sizeClasses = {
+    small: 'w-[52px] h-[52px] min-w-[52px]',
+    medium: 'w-[86px] h-[86px] min-w-[86px]',
+    large: 'w-[120px] h-[120px] min-w-[120px]'
+  };
+  const sizeClass = sizeClasses[size] || sizeClasses.medium;
   
   return (
-    <div className={`${styles.iconContainer} ${sizeClass} ${className}`} style={style}>
+    <div className={`flex justify-center items-center overflow-hidden rounded-[22%] bg-gradient-to-br from-slate-800/40 to-slate-950/60 border border-white/10 shadow-glass group relative ${sizeClass} ${className}`} style={style}>
       {loading ? (
         // Exibir um placeholder enquanto carrega
-        <div className={styles.placeholder} />
+        <div className="w-full h-full animate-pulse bg-white/5" />
       ) : error ? (
-        // Exibir um ícone genérico em caso de erro
-        <div className={styles.errorIcon}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2v-2zm0-10h2v8h-2V7z" />
-          </svg>
+        // Exibir fallback (letra ou ícone genérico)
+        <div className="w-full h-full flex justify-center items-center bg-slate-800 text-slate-300 font-bold text-3xl border border-white/5">
+          {fallbackLetter ? (
+             <span>{fallbackLetter}</span>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-40">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2v-2zm0-10h2v8h-2V7z" />
+            </svg>
+          )}
         </div>
       ) : (
         // Exibir o ícone do aplicativo
         <img
           src={iconUrl}
           alt={alt}
-          className={styles.appIcon}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           referrerPolicy="no-referrer"
         />
       )}

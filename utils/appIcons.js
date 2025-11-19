@@ -76,6 +76,17 @@ export async function fetchAppInfo(appId) {
   }
 }
 
+
+/**
+ * URLs de ícones conhecidos para fallback quando a API do Google Play falhar.
+ * Isso é útil para evitar que o ícone fique quebrado se o scraping for bloqueado.
+ * OBS: Deixe vazio ou com null para usar a Letra Inicial como fallback e evitar erros 429.
+ */
+const GOOGLE_PLAY_ICON_FALLBACKS = {
+  'com.afterdarkgames.rubamazzo': null, 
+  'com.afterdark.games.magic.water.color.sort.puzzle': null
+};
+
 /**
  * Busca o ícone de um aplicativo do Google Play usando uma rota interna
  * @param {string} packageId - Package name do aplicativo (ex: com.exemplo.app)
@@ -89,14 +100,17 @@ export async function fetchGooglePlayIcon(packageId) {
 
     if (!response.ok) {
       console.error('Erro ao buscar ícone do Google Play:', response.status);
-      return null;
+      // Tenta usar fallback se a API falhar
+      return GOOGLE_PLAY_ICON_FALLBACKS[packageId] || null;
     }
 
     const data = await response.json();
-    return data?.iconUrl || null;
+    // Se a API retornar null, tenta o fallback
+    return data?.iconUrl || GOOGLE_PLAY_ICON_FALLBACKS[packageId] || null;
   } catch (error) {
     console.error('Erro ao buscar informações do Google Play:', error);
-    return null;
+    // Tenta usar fallback em caso de erro de rede
+    return GOOGLE_PLAY_ICON_FALLBACKS[packageId] || null;
   }
 }
 
